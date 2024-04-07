@@ -23,7 +23,8 @@ An electricity billing system is a software that manages customer information, m
     {Unzip-->MySQL connector}.
 <h3>📷Images:-</h3>
 
-1) ![resize-171250936055862735Screenshot20240407222619](https://github.com/SuhaibFida/Electricity-Billing-System/assets/109733166/cb011cce-ea47-403b-bb90-32947cd1b924)
+1) ![image](https://github.com/SuhaibFida/Electricity-Billing-System/assets/109733166/e801437f-f328-4d33-97d8-3540a202ea57)
+
 
 
 
