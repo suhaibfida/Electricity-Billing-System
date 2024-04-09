@@ -1,17 +1,21 @@
 package electricity.billing.system;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Login extends JFrame{
+public class Login extends JFrame implements ActionListener{
+    JButton button1,button2,button3; 
     
     Login(){
         //       ---------Creating Panel----------
+        
         setTitle("Flash Billing System");
         setSize(750,590);
         setLocation(410,100);
    
 //       --------1st image background----------
-        ImageIcon background=new ImageIcon(ClassLoader.getSystemResource("icons/vivid-blurred-colorful-wallpaper-background.png") );
+        ImageIcon background=new ImageIcon(ClassLoader.getSystemResource("icons/blue.png") );
         Image set1=background.getImage().getScaledInstance(750, 600, Image.SCALE_DEFAULT);
         ImageIcon i1=new ImageIcon(set1);
         JLabel image1=new JLabel(i1);
@@ -29,7 +33,7 @@ public class Login extends JFrame{
 //         --------Head Text--------
          
         JLabel headline=new JLabel("Flash Billing System");
-        headline.setBounds(215, 110, 800, 70);
+        headline.setBounds(216, 110, 800, 70);
         headline.setFont(new Font("SAN SERIF",Font.BOLD,30));
         headline.setForeground(Color.white);
         image1.add(headline);
@@ -72,40 +76,67 @@ public class Login extends JFrame{
         
 //           ------------Buttons----------
 
-        JButton button1=new JButton("Sign In");
+         button1=new JButton("Sign In");
         button1.setBounds(245, 385, 250, 28);
         button1.setFont(new Font("SAN Serif",Font.BOLD,18));
         button1.setForeground(Color.DARK_GRAY);
         button1.setBackground(Color.ORANGE);
+        button1.addActionListener(this);
         button1.setBorder(null);
         image1.add(button1);
         
-        JButton button2=new JButton("Sign Up");
+         button2=new JButton("Sign Up");
         button2.setForeground(Color.DARK_GRAY);
         button2.setBackground(Color.LIGHT_GRAY);
         button2.setBorder(null);
+        button2.addActionListener(this);
         button2.setBounds(245, 420, 110, 25);
         button2.setFont(new Font("SAN Serif",Font.BOLD,15));
         image1.add(button2);
         
-        JButton button3=new JButton("Forget");
+         button3=new JButton("Forget");
         button3.setForeground(Color.DARK_GRAY);
+        button3.addActionListener(this);
         button3.setBackground(Color.LIGHT_GRAY);
         button3.setBorder(null);
         button3.setBounds(385, 420, 110, 25);
         button3.setFont(new Font("SAN Serif",Font.BOLD,15));
         image1.add(button3);
-           setVisible(true);
+           
 //       -------Bottom------------
 
         JLabel bottom=new JLabel("Created and designed by Suhaib Fida");
         bottom.setBounds(267, 485, 500, 100);
         bottom.setForeground(Color.white);
         image1.add(bottom);
+           
+           setVisible(true);
            setLayout(null);
+           
         
     }
-    public static void main(String args[]){
+     @Override
+    public void actionPerformed(ActionEvent e) {
+    if(e.getSource()==button1){
+        setVisible(false);
+        
+    }
+    else if(e.getSource() == button2){
+        setVisible(false);
+        new Register().setVisible(true);
+        
+        
+        
+    }
+    else if(e.getSource()==button3){
+        setVisible(false);
+        
+    }
+    
+    }
+    public static void main(String [] args){
         new Login(); 
     }
+
+   
 }
