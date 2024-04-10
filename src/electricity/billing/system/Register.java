@@ -6,23 +6,43 @@ import javax.swing.*;
 
 public class Register extends JFrame {
     Register(){
-        setTitle("Register");
-        setSize(650,630);
-        setLocation(410,100);
+         setTitle("Register");
+         setSize(650,630);
+         setLocation(410,100);
    
 //       --------1st image background----------
-        ImageIcon background=new ImageIcon(ClassLoader.getSystemResource("icons/reg.jpg") );
-        Image set1=background.getImage().getScaledInstance(750, 600, Image.SCALE_DEFAULT);
-        ImageIcon i1=new ImageIcon(set1);
-        JLabel image1=new JLabel(i1);
-        add(image1);
-        JLabel label1=new JLabel("Create Account as:");
-        label1.setBounds(90, 157, 150, 16);
-        image1.add(label1);
-        label1.setFont(new Font("SAN SERIF",Font.BOLD,16));
-        label1.setForeground(Color.DARK_GRAY);
+
+         ImageIcon background=new ImageIcon(ClassLoader.getSystemResource("icons/reg.jpg") );
+         Image set1=background.getImage().getScaledInstance(750, 600, Image.SCALE_DEFAULT);
+         ImageIcon i1=new ImageIcon(set1);
+         JLabel image1=new JLabel(i1);
+         add(image1);
+         
+         ImageIcon icon=new ImageIcon(ClassLoader.getSystemResource("icons/idea.png"));
+         Image set2=icon.getImage().getScaledInstance(54, 54,Image.SCALE_DEFAULT);
+         ImageIcon i2=new ImageIcon(set2);
+         JLabel image2=new JLabel(i2);
+         image2.setBounds(10, 11, 50, 50);
+         image1.add(image2);
+         JLabel headline=new JLabel("FBS");
+         headline.setBounds(62, 14, 80, 40);
+         headline.setFont(new Font("SAN SERIF",Font.BOLD,23));
+         headline.setForeground(Color.white);
+         image1.add(headline);
+         
+         
+         
+         
+         JLabel label1=new JLabel("Create Account as:");
+         label1.setBounds(90, 157, 150, 16);
+         image1.add(label1);
+         label1.setFont(new Font("SAN SERIF",Font.BOLD,16));
+         label1.setForeground(Color.DARK_GRAY);
+         
+         
+         
         
-        Choice reg =new Choice();
+         Choice reg =new Choice();
          reg.add("Customer");
          reg.add("Admin");
          image1.add(reg);
@@ -68,6 +88,25 @@ public class Register extends JFrame {
          image1.add(text4);
          text4.setBounds(280,424,199,20);
          text4.setBorder(null);
+         JButton button1=new JButton("Back");
+         button1.setBounds(155, 504, 120, 25);
+         button1.setBackground(Color.GRAY);
+         button1.setForeground(Color.WHITE);
+         button1.setFont(new Font("SAN SERIF",Font.BOLD,16));
+          button1.setBorder(null);
+         image1.add(button1);
+         
+         JButton button2=new JButton("Next");
+         button2.setBounds(295, 504, 120, 25);
+         button2.setBackground(Color.orange);
+         button2.setForeground(Color.DARK_GRAY);
+         button2.setFont(new Font("SAN SERIF",Font.BOLD,16));
+         button2.setBorder(null);
+         image1.add(button2);
+         
+         
+         
+         
          
          
          

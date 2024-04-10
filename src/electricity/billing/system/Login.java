@@ -27,7 +27,6 @@ public class Login extends JFrame implements ActionListener{
          
         JLabel image2=new JLabel(i2);
         image2.setBounds(309, 20, 100, 100);
-        image2.setFont(new Font("SAN SERIF",Font.BOLD,30));
         image1.add(image2);
         
 //         --------Head Text--------
