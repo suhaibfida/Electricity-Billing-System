@@ -1,4 +1,5 @@
 package electricity.billing.system;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,19 +9,22 @@ public class Login extends JFrame implements ActionListener{
     JButton button1,button2,button3; 
     
     Login(){
-        //       ---------Creating Panel----------
+        //    ---------Creating Panel----------
         
         setTitle("Flash Billing System");
         setSize(750,590);
-        setLocation(410,100);
+        setLocation(370,100);
    
 //       --------1st image background----------
+
         ImageIcon background=new ImageIcon(ClassLoader.getSystemResource("icons/blue.png") );
         Image set1=background.getImage().getScaledInstance(750, 600, Image.SCALE_DEFAULT);
         ImageIcon i1=new ImageIcon(set1);
         JLabel image1=new JLabel(i1);
         add(image1);
+        
 //         -------------- 2nd Image Icon    -------------------
+
         ImageIcon icon=new ImageIcon(ClassLoader.getSystemResource("icons/idea.png"));
         Image set2=icon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
         ImageIcon i2 =new ImageIcon(set2);
@@ -37,7 +41,7 @@ public class Login extends JFrame implements ActionListener{
         headline.setForeground(Color.white);
         image1.add(headline);
         
-//        ----------- Logging As customer or admin -----------
+//        ----------- LoggingIn As customer or admin -----------
 
         Choice login = new Choice();
         image1.add(login);
@@ -56,7 +60,7 @@ public class Login extends JFrame implements ActionListener{
         image1.add(text1);
         JTextField input1=new JTextField();
         input1.setBounds(245, 240, 250, 21);
-        input1.setFont(new Font("SAN SERIF",Font.BOLD,12));
+        input1.setFont(new Font("SAN SERIF",Font.BOLD,11));
         input1.setBorder(null);
         input1.setBackground(Color.WHITE);
         image1.add(input1);
@@ -67,7 +71,7 @@ public class Login extends JFrame implements ActionListener{
         text2.setFont(new Font("SERIF",Font.BOLD,15));
         image1.add(text2);
           
-        JTextField input2=new JTextField();
+        JPasswordField input2=new JPasswordField();
         input2.setBounds(245, 315, 250, 21);
         input2.setBorder(null);
         input2.setBackground(Color.WHITE);
@@ -102,7 +106,7 @@ public class Login extends JFrame implements ActionListener{
         button3.setFont(new Font("SAN Serif",Font.BOLD,15));
         image1.add(button3);
            
-//       -------Bottom------------
+//       ------------------Bottom-------------------
 
         JLabel bottom=new JLabel("Created and designed by Suhaib Fida");
         bottom.setBounds(267, 485, 500, 100);
@@ -111,31 +115,25 @@ public class Login extends JFrame implements ActionListener{
            
            setVisible(true);
            setLayout(null);
-           
-        
-    }
-     @Override
-    public void actionPerformed(ActionEvent e) {
-    if(e.getSource()==button1){
+          
+       }
+       @Override
+       public void actionPerformed(ActionEvent e) {
+       if(e.getSource()==button1){
         setVisible(false);
         
-    }
-    else if(e.getSource() == button2){
+      }
+        else if(e.getSource() == button2){
         setVisible(false);
         new Register().setVisible(true);
-        
-        
-        
-    }
-    else if(e.getSource()==button3){
+       }
+        else {
         setVisible(false);
         
-    }
+     }
     
+     }
+        public static void main(String [] args){
+         new Login(); 
+     }
     }
-    public static void main(String [] args){
-        new Login(); 
-    }
-
-   
-}
