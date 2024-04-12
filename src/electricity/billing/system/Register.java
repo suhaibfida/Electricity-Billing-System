@@ -8,6 +8,9 @@ import javax.swing.*;
 public class Register extends JFrame implements ActionListener{
     
     JButton button1,button2;
+    Choice reg;
+    JTextField text1,text2,text3;
+    JPasswordField text4;
     
     Register(){
          setTitle("Register");
@@ -52,7 +55,7 @@ public class Register extends JFrame implements ActionListener{
          label1.setFont(new Font("SAN SERIF",Font.BOLD,16));
          label1.setForeground(Color.DARK_GRAY);
          
-         Choice reg =new Choice();
+          reg =new Choice();
          reg.add("Customer");
          reg.add("Admin");
          image1.add(reg);
@@ -64,7 +67,7 @@ public class Register extends JFrame implements ActionListener{
          image1.add(label2);
          label2.setFont(new Font("SAN SERIF",Font.BOLD,16));
          label2.setForeground(Color.DARK_GRAY);
-         JTextField text1=new JTextField();
+         text1=new JTextField();
          image1.add(text1);
          text1.setBounds(280,227,199,20);
          text1.setBorder(null);
@@ -74,7 +77,7 @@ public class Register extends JFrame implements ActionListener{
          image1.add(label3);
          label3.setFont(new Font("SAN SERIF",Font.BOLD,16));
          label3.setForeground(Color.DARK_GRAY);
-         JTextField text2=new JTextField();
+         text2=new JTextField();
          image1.add(text2);
          text2.setBounds(280,297,199,20);
          text2.setBorder(null);
@@ -84,7 +87,7 @@ public class Register extends JFrame implements ActionListener{
          image1.add(label4);
          label4.setFont(new Font("SAN SERIF",Font.BOLD,16));
          label4.setForeground(Color.DARK_GRAY);
-         JTextField text3=new JTextField();
+         text3=new JTextField();
          image1.add(text3);
          text3.setBounds(280,364,199,20);
          text3.setBorder(null);
@@ -94,7 +97,7 @@ public class Register extends JFrame implements ActionListener{
          image1.add(label5);
          label5.setFont(new Font("SAN SERIF",Font.BOLD,16));
          label5.setForeground(Color.DARK_GRAY);
-         JPasswordField text4=new JPasswordField();
+         text4=new JPasswordField();
          image1.add(text4);
          text4.setBounds(280,424,199,20);
          text4.setBorder(null);
@@ -131,11 +134,36 @@ public class Register extends JFrame implements ActionListener{
          public void actionPerformed(ActionEvent e) {
   
          if(e.getSource()==button1){
+             
+             
+             
+             
+             
          setVisible(false);
          new Login().setVisible(true);
          }
          else {
-         setVisible(false);
+         
+         String sch=reg.getSelectedItem();
+         String stext1=text1.getText();
+         String stext2=text2.getText();
+         String stext3=text3.getText();
+         String stext4=text4.getText();
+         try{
+             Connect c=new Connect();
+             String query="insert into login values('"+sch+"','"+stext1+"','"+stext2+"','"+stext3+"','"+stext3+"')";
+             c.s.executeUpdate(query);
+             JOptionPane.showMessageDialog(null, "Account created Successfully");
+             setVisible(false);
+             new Login().setVisible(true);
+         }
+         catch(Exception ae){
+             ae.printStackTrace();
+         }
+         
+         
+         
+         
          
          }
     
