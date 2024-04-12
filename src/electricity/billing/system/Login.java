@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Login extends JFrame implements ActionListener{
+    
     JButton button1,button2,button3; 
     
     Login(){
@@ -23,7 +24,7 @@ public class Login extends JFrame implements ActionListener{
         JLabel image1=new JLabel(i1);
         add(image1);
         
-//         -------------- 2nd Image Icon    -------------------
+//         -------------- 2nd Image Icon -------------------
 
         ImageIcon icon=new ImageIcon(ClassLoader.getSystemResource("icons/idea.png"));
         Image set2=icon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
@@ -79,7 +80,7 @@ public class Login extends JFrame implements ActionListener{
         
 //           ------------Buttons----------
 
-         button1=new JButton("Sign In");
+        button1=new JButton("Sign In");
         button1.setBounds(245, 385, 250, 28);
         button1.setFont(new Font("SAN Serif",Font.BOLD,18));
         button1.setForeground(Color.DARK_GRAY);
@@ -88,7 +89,7 @@ public class Login extends JFrame implements ActionListener{
         button1.setBorder(null);
         image1.add(button1);
         
-         button2=new JButton("Sign Up");
+        button2=new JButton("Sign Up");
         button2.setForeground(Color.DARK_GRAY);
         button2.setBackground(Color.LIGHT_GRAY);
         button2.setBorder(null);
@@ -97,7 +98,7 @@ public class Login extends JFrame implements ActionListener{
         button2.setFont(new Font("SAN Serif",Font.BOLD,15));
         image1.add(button2);
         
-         button3=new JButton("Forget");
+        button3=new JButton("Forget");
         button3.setForeground(Color.DARK_GRAY);
         button3.addActionListener(this);
         button3.setBackground(Color.LIGHT_GRAY);
@@ -117,9 +118,9 @@ public class Login extends JFrame implements ActionListener{
            setLayout(null);
           
        }
-       @Override
-       public void actionPerformed(ActionEvent e) {
-       if(e.getSource()==button1){
+        @Override
+        public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==button1){
         setVisible(false);
         
       }

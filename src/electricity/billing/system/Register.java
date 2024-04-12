@@ -6,7 +6,9 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class Register extends JFrame implements ActionListener{
+    
     JButton button1,button2;
+    
     Register(){
          setTitle("Register");
          setSize(650,630);
@@ -138,9 +140,5 @@ public class Register extends JFrame implements ActionListener{
          }
     
      }
-
-  
-
-   
-    
+ 
 }
