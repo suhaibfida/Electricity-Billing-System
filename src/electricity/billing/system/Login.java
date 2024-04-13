@@ -16,7 +16,7 @@ public class Login extends JFrame implements ActionListener{
         setSize(750,590);
         setLocation(370,100);
    
-//       --------1st image background----------
+//       -------- Background Image ----------
 
         ImageIcon background=new ImageIcon(ClassLoader.getSystemResource("icons/blue.png") );
         Image set1=background.getImage().getScaledInstance(750, 600, Image.SCALE_DEFAULT);
