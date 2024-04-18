@@ -78,9 +78,9 @@ public class Register extends JFrame implements ActionListener{
          label3.setFont(new Font("SAN SERIF",Font.BOLD,16));
          label3.setForeground(Color.DARK_GRAY);
          text2=new JTextField();
-         image1.add(text2);
          text2.setBounds(280,297,199,20);
          text2.setBorder(null);
+         image1.add(text2);
          
          JLabel label4=new JLabel("Name:");
          label4.setBounds(90, 365, 150, 16);
@@ -151,7 +151,7 @@ public class Register extends JFrame implements ActionListener{
          String stext4=text4.getText();
          try{
              Connect c=new Connect();
-             String query="insert into login values('"+sch+"','"+stext1+"','"+stext2+"','"+stext3+"','"+stext3+"')";
+             String query="insert into login values('"+stext1+"','"+stext2+"','"+stext3+"','"+stext4+"','"+sch+"')";
              c.s.executeUpdate(query);
              JOptionPane.showMessageDialog(null, "Account created Successfully");
              setVisible(false);

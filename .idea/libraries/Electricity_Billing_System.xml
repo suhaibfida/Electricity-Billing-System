@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Electricity_Billing_System">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/dist/Electricity_Billing_System.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

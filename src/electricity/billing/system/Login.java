@@ -4,10 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
+
+
 
 public class Login extends JFrame implements ActionListener{
     
     JButton button1,button2,button3; 
+    JTextField input1;
+    JPasswordField input2;
+    Choice login;
     
     Login(){
         //    ---------Creating Panel----------
@@ -44,10 +50,10 @@ public class Login extends JFrame implements ActionListener{
         
 //        ----------- LoggingIn As customer or admin -----------
 
-        Choice login = new Choice();
+        login = new Choice();
         image1.add(login);
-        login.add(" Customer");
-        login.add(" Admin");
+        login.add("Customer");
+        login.add("Admin");
         login.setBounds(10, 10, 100, 21);
         login.setBackground(Color.orange);
         login.setForeground(Color.DARK_GRAY);
@@ -59,7 +65,7 @@ public class Login extends JFrame implements ActionListener{
         text1.setForeground(Color.DARK_GRAY);
         text1.setFont(new Font("SERIF",Font.BOLD,15));
         image1.add(text1);
-        JTextField input1=new JTextField();
+        input1=new JTextField();
         input1.setBounds(245, 240, 250, 21);
         input1.setFont(new Font("SAN SERIF",Font.BOLD,11));
         input1.setBorder(null);
@@ -72,7 +78,7 @@ public class Login extends JFrame implements ActionListener{
         text2.setFont(new Font("SERIF",Font.BOLD,15));
         image1.add(text2);
           
-        JPasswordField input2=new JPasswordField();
+        input2=new JPasswordField();
         input2.setBounds(245, 315, 250, 21);
         input2.setBorder(null);
         input2.setBackground(Color.WHITE);
@@ -121,8 +127,33 @@ public class Login extends JFrame implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
         if(e.getSource()==button1){
-        setVisible(false);
-        
+
+            String suser=input1.getText();
+            String spass=input2.getText();
+            String ssuser=login.getSelectedItem();
+
+
+            try{
+                Connect c=new Connect();
+                String query="select * from login where username='"+suser+"'and password='"+spass+"'and user='"+ssuser+"'";
+
+                ResultSet rs=c.s.executeQuery(query);
+               if(rs.next()){
+                   setVisible(false);
+                   new Home().setVisible(true);
+                   
+               }
+               else{
+                   JOptionPane.showMessageDialog(null, "Invalid credentials");
+                   input1.setText("");
+                   input2.setText("");
+               }
+                
+            }
+            catch(Exception ae){
+                ae.printStackTrace();
+            }
+            
       }
         else if(e.getSource() == button2){
         setVisible(false);

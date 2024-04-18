@@ -2,14 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67b46a08-97d5-4a0f-996f-fd01044f81f9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/ant.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/EBS.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Electricity_Billing_System.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Electricity-Billing-System-main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Electricity-Billing-System-main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Electricity-Billing-System-main/electricity/billing/system/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Electricity-Billing-System-main/electricity/billing/system/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Electricity-Billing-System-main/electricity/billing/system/Register.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Electricity-Billing-System-main/electricity/billing/system/Register.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/electricity/billing/system/Connect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/electricity/billing/system/Connect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/electricity/billing/system/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/electricity/billing/system/Home.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/electricity/billing/system/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/electricity/billing/system/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/electricity/billing/system/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/electricity/billing/system/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/icons/vivid-blurred-colorful-wallpaper-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mysql-connector-j-8.3.0.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -19,6 +36,7 @@
   </component>
   <component name="ProjectId" id="2esG2X1SJ1cQTQ9CmzXjd4nhSrE" />
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
@@ -26,11 +44,33 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Suhai/Desktop/Electricity-Billing-System-main",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/Suhai/Downloads/EBS",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.keymap"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "PLAIN_TEXT"
+    ]
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Login">
+    <configuration name="Connect" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="electricity.billing.system.Connect" />
+      <module name="Electricity-Billing-System-main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="electricity.billing.system.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="electricity.billing.system.Login" />
       <module name="Electricity-Billing-System-main" />
@@ -47,6 +87,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Login" />
+        <item itemvalue="Application.Connect" />
       </list>
     </recent_temporary>
   </component>
@@ -60,5 +101,40 @@
       <updated>1712685665548</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/electricity/billing/system/Login.java</url>
+          <line>78</line>
+          <properties class="electricity.billing.system.Login">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/electricity/billing/system/Connect.java</url>
+          <line>10</line>
+          <properties class="electricity.billing.system.Connect" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
