@@ -16,7 +16,7 @@ public class Login extends JFrame implements ActionListener{
     Choice login;
     
     Login(){
-        //    ---------Creating Panel----------
+        //    --------- Creating Panel ----------
         
         setTitle("Flash Billing System");
         setSize(750,590);
@@ -40,7 +40,7 @@ public class Login extends JFrame implements ActionListener{
         image2.setBounds(309, 20, 100, 100);
         image1.add(image2);
         
-//         --------Head Text--------
+//         -------- Head Text --------
          
         JLabel headline=new JLabel("Flash Billing System");
         headline.setBounds(216, 110, 800, 70);
@@ -58,7 +58,7 @@ public class Login extends JFrame implements ActionListener{
         login.setBackground(Color.orange);
         login.setForeground(Color.DARK_GRAY);
       
-//         --------------Input------------
+//         -------------- Input ------------
 
         JLabel text1=new JLabel("Username:");
         text1.setBounds(245, 210, 300, 30);
@@ -84,7 +84,7 @@ public class Login extends JFrame implements ActionListener{
         input2.setBackground(Color.WHITE);
         image1.add(input2);
         
-//           ------------Buttons----------
+//           ------------ Buttons ----------
 
         button1=new JButton("Sign In");
         button1.setBounds(245, 385, 250, 28);
@@ -113,7 +113,7 @@ public class Login extends JFrame implements ActionListener{
         button3.setFont(new Font("SAN Serif",Font.BOLD,15));
         image1.add(button3);
            
-//       ------------------Bottom-------------------
+//       ------------------ Bottom -------------------
 
         JLabel bottom=new JLabel("Created and designed by Suhaib Fida");
         bottom.setBounds(267, 485, 500, 100);
@@ -121,7 +121,7 @@ public class Login extends JFrame implements ActionListener{
         image1.add(bottom);
            
            setVisible(true);
-           setLayout(null);
+          
           
        }
         @Override
