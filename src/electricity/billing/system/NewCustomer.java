@@ -1,11 +1,14 @@
 package electricity.billing.system;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import javax.swing.*;
-
-
-public class NewCustomer extends JFrame{
-    JTextField text1,text2,text3,text4;
+import java.awt.event.ActionListener;
+import java.util.Random;
+public class NewCustomer extends JFrame implements ActionListener{
+    JTextField text1,text2,text3,text4,text5,text6;
     JButton button1,button2;
+    JLabel random;
+    
     
     NewCustomer (){
         setTitle("New Customer");
@@ -34,9 +37,25 @@ public class NewCustomer extends JFrame{
          logotext.setForeground(Color.white);
          label1.add(logotext);
          
+//         ---------- Random no ----------
+
+          JLabel meter=new JLabel("Meter No:");
+          meter.setBounds(400, 0, 90, 50);
+          meter.setForeground(Color.white);
+          meter.setFont(new Font("SERIF",Font.BOLD,17));
+          label1.add(meter);
+          random=new JLabel("");
+          random.setBounds(475, 1, 50, 50);
+          random.setForeground(Color.white);
+          random.setFont(new Font("SERIF",Font.BOLD,16));
+          label1.add(random);
+          Random r=new Random();
+          long l=(r.nextLong()%1000000)+1000;
+          random.setText(Math.abs(l)+"");
+          random.setForeground(Color.ORANGE);
+         
 //         HeadLine
 
-   
          JLabel head=new JLabel("⚡ New Customer ⚡ ");
          head.setBounds(185, 70, 500, 40);
          label1.add(head);
@@ -45,8 +64,6 @@ public class NewCustomer extends JFrame{
             
 //         --------------Text + Textfield-------------------
 
-        
-         
          JLabel label3=new JLabel("Customer Name:");
          label3.setBounds(90, 158, 150, 20);
          label1.add(label3);
@@ -92,28 +109,21 @@ public class NewCustomer extends JFrame{
          label1.add(label7);
          label7.setFont(new Font("SERIF",Font.BOLD,19));
          label7.setForeground(Color.white);
-         text4=new JPasswordField();
-         label1.add(text4);
-         text4.setBounds(280,400,190,18);
-         text4.setBorder(null);
-         
+         text5=new JPasswordField();
+         label1.add(text5);
+         text5.setBounds(280,400,190,18);
+         text5.setBorder(null);
          
          JLabel label8=new JLabel("Phone No:");
          label8.setBounds(90, 460, 150, 20);
          label1.add(label8);
          label8.setFont(new Font("SERIF",Font.BOLD,19));
          label8.setForeground(Color.white);
-         text4=new JPasswordField();
-         label1.add(text4);
-         text4.setBounds(280,460,190,18);
-         text4.setBorder(null);
-         
-         
-         
-         
-         
-         
-         
+         text6=new JPasswordField();
+         label1.add(text6);
+         text6.setBounds(280,460,190,18);
+         text6.setBorder(null);
+        
 //         --------------Buttons-----------------
 
          button1=new JButton("Back");
@@ -121,6 +131,7 @@ public class NewCustomer extends JFrame{
          button1.setBackground(Color.GRAY);
          button1.setForeground(Color.WHITE);
          button1.setFont(new Font("SAN SERIF",Font.BOLD,16));
+         button1.addActionListener(this);
          button1.setBorder(null);
          label1.add(button1);
          
@@ -129,23 +140,42 @@ public class NewCustomer extends JFrame{
          button2.setBackground(Color.orange);
          button2.setForeground(Color.DARK_GRAY);
          button2.setFont(new Font("SAN SERIF",Font.BOLD,16));
+         button2.addActionListener(this);
          button2.setBorder(null);
          label1.add(button2);  
          setVisible(true);
          
-         
-         
-         setVisible(true);
-        
-        
     }
-    
-    
-    
-    
     public static void main(String[] args){
- 
-        
         new NewCustomer();
     }
-}
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==button2){
+           String met=random.getText();
+            String name=text1.getText();
+            String address=text2.getText();
+            String city=text3.getText();
+            String state=text4.getText();
+            String email=text5.getText();
+            String phone=text5.getText();
+            String query1="insert into customer values( '"+met+"','"+name+"','"+address+"','"+city+"','"+state+"','"+email+"','"+phone+"')";
+            String query2="insert  into login values('"+met+"','','"+name+"','','')";
+            try{
+                Connect c=new Connect();
+                c.s.executeUpdate(query1);
+                c.s.executeUpdate(query2);
+                JOptionPane.showMessageDialog(null, "Added successfully.");
+                setVisible(false);
+                  new MeterInformation(met);
+                
+            }
+            
+            catch(Exception ae){
+                ae.getStackTrace();
+                
+            }
+        }
+      
+}}

@@ -3,19 +3,21 @@ package electricity.billing.system;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.ActiveEvent;
 
-public class Home extends JFrame{
+public class Home extends JFrame implements ActionListener{
+    JMenuItem first;
     Home(){
         
          //    ---------Creating Panel----------
          
          setTitle("Welcome");
          setSize(1200,800);
-         setLocation(180,20);
+         setLocation(180,10);
          
          //   ---------- Background Image ----------
          
-         ImageIcon background=new ImageIcon(ClassLoader.getSystemResource("icons/tower.jpg"));
+         ImageIcon background=new ImageIcon(ClassLoader.getSystemResource("icons/wallpapers.jpg"));
          Image set=background.getImage().getScaledInstance(1200, 800, Image.SCALE_DEFAULT);
          ImageIcon i1=new ImageIcon(set);
          JLabel image1=new JLabel(i1);
@@ -39,7 +41,7 @@ public class Home extends JFrame{
           
 //          ---------------------------------------
 
-          JMenuItem first=new JMenuItem("New Customer");
+          first=new JMenuItem("New Customer");
           ImageIcon img2=new ImageIcon(ClassLoader.getSystemResource("icons/customer.png"));
           Image set2=img2.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT);
           first.setIcon(new ImageIcon(set2));
@@ -171,12 +173,34 @@ public class Home extends JFrame{
           exit.setIcon(new ImageIcon(set13));
           menu.add(exit);
           
+//          ----------TEXT------------------
+        JLabel text1=new JLabel("Welcome to the world \n of light!!!");
+        text1.setBounds(245, 30, 3000, 90);
+        text1.setForeground(Color.white);
+        text1.setFont(new Font("SERIF",Font.BOLD,50));
+        image1.add(text1);
+          
+          
+          
+          
+          
+          
          setVisible(true);
           
     }
+    public static void main(String [] args){
+          new Home();
+    }
         
     
-          public static void main(String [] args){
-          new Home();
+         @Override
+         public void actionPerformed(ActionEvent e) {
+             if(e.getSource()==first){
+                 setVisible(false);
+                 new NewCustomer().setVisible(true);
+                 
+             }
+        
+        
     }
 }
