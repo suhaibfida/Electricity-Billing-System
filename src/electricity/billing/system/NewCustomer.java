@@ -12,7 +12,7 @@ public class NewCustomer extends JFrame implements ActionListener{
     
     NewCustomer (){
         setTitle("New Customer");
-        setLocation(480,50);
+        setLocation(480,70);
         setSize(600,650);
   
 //        ------------- Background ---------------

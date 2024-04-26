@@ -6,18 +6,18 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.sql.*;
-public class CalculateBill extends JFrame {
+public class CalculateBill extends JFrame implements ActionListener {
    Choice text0;
-    JLabel  text1,text2,text3,text4,text5,text6;
+    JLabel  text1,text2;
     JButton button1,button2;
-    JLabel random;
-    String meter;
+    JTextField text3;
+    Choice text4;
     
-    CalculateBill (String meter){
+    CalculateBill (){
         setTitle("Calculate Bill");
         setLocation(480,50);
         setSize(600,650);
-        this.meter=meter;
+       
   
 //        ------------- Background ---------------
 
@@ -73,7 +73,7 @@ public class CalculateBill extends JFrame {
          text0.setBounds(370,15,200,50);
          text0.setBackground(Color.ORANGE);
          label1.add(text0);
-         label1.add(text0);
+        
          
          JLabel label3=new JLabel("Name:");
          label3.setBounds(90, 158, 150, 25);
@@ -81,10 +81,10 @@ public class CalculateBill extends JFrame {
          label3.setFont(new Font("SERIF",Font.BOLD,19));
          label3.setForeground(Color.white);
          text1=new JLabel();
-          text1.setFont(new Font("SERIF",Font.BOLD,17));
+          text1.setFont(new Font("SAN SERIF",Font.BOLD,25));
          label1.add(text1);
-         text1.setBounds(280,159,190,18);
-         text1.setForeground(Color.GREEN);
+         text1.setBounds(280,159,190,25);
+         text1.setForeground(Color.white);
          
          
          JLabel label4=new JLabel("Address");
@@ -93,10 +93,10 @@ public class CalculateBill extends JFrame {
          label4.setForeground(Color.white);
          label1.add(label4);
          text2=new JLabel();
-         text2.setBounds(280,218,190,18);
-          text2.setFont(new Font("SERIF",Font.BOLD,30));
+         text2.setBounds(280,218,190,25);
+          text2.setFont(new Font("SAN SERIF",Font.BOLD,25));
          label1.add(text2);
-         text2.setForeground(Color.GREEN);
+         text2.setForeground(Color.white);
        
            try{
              Connect c=new Connect();
@@ -112,6 +112,10 @@ public class CalculateBill extends JFrame {
              
          }
            
+            
+           
+           
+           
             text0.addItemListener(new ItemListener(){
              @Override
             public void itemStateChanged(ItemEvent e) {
@@ -120,7 +124,7 @@ public class CalculateBill extends JFrame {
              ResultSet set=c.s.executeQuery("select * from customer where meter='"+text0.getSelectedItem()+"'");
              while(set.next()){
                  text1.setText(set.getString("name"));
-                text1.setText(set.getString("address"));
+                text2.setText(set.getString("address"));
    
              }
          }
@@ -139,10 +143,11 @@ public class CalculateBill extends JFrame {
          label1.add(label5);
          label5.setFont(new Font("SERIF",Font.BOLD,19));
          label5.setForeground(Color.white);
-         text3=new JLabel();
+         text3=new JTextField();
          label1.add(text3);
          text3.setBackground(Color.ORANGE);
-         text3.setBounds(280,280,190,18);
+         text3.setBounds(280,283,190,18);
+         text3.setBorder(null);
       
          
         
@@ -156,11 +161,26 @@ public class CalculateBill extends JFrame {
          label1.add(label6);
          label6.setFont(new Font("SERIF",Font.BOLD,19));
          label6.setForeground(Color.white);
-         text4=new JLabel();
+         text4=new Choice();
          
          text4.setBackground(Color.ORANGE);
          label1.add(text4);
-         text4.setBounds(280,341,190,18);
+         text4.setBounds(280,343,190,18);
+         text4.add("January");
+         text4.add("February");
+         text4.add("March");
+         text4.add("April");
+         text4.add("May");
+         text4.add("June");
+         text4.add("July");
+         text4.add("August");
+         text4.add("September");
+         text4.add("October");
+         text4.add("November");
+         text4.add("December");
+         
+         
+         
          
          
        
@@ -170,58 +190,77 @@ public class CalculateBill extends JFrame {
 
          
          
-         button1=new JButton("SUBMIT");
-         button1.setBounds(235, 530, 150, 30);
+         button1=new JButton("Back");
+         button1.setBounds(155, 504, 120, 25);
          button1.setBackground(Color.GRAY);
-         button1.setForeground(Color.white);
-         button1.setFont(new Font("SAN SERIF",Font.BOLD,19));
-//         button1.addActionListener(this);
+         button1.setForeground(Color.WHITE);
+         button1.setFont(new Font("SAN SERIF",Font.BOLD,16));
+         button1.addActionListener(this);
          button1.setBorder(null);
-         label1.add(button1);  
-         setVisible(true);
+         label1.add(button1);
          
-         
-         
-           button2=new JButton("SUBMIT");
-         button2.setBounds(220, 530, 150, 30);
-         button2.setBackground(Color.GRAY);
-         button2.setForeground(Color.white);
-         button2.setFont(new Font("SAN SERIF",Font.BOLD,19));
-//         button2.addActionListener(this);
+         button2=new JButton("Next");
+         button2.setBounds(295, 504, 120, 25);
+         button2.setBackground(Color.orange);
+         button2.setForeground(Color.DARK_GRAY);
+         button2.setFont(new Font("SAN SERIF",Font.BOLD,16));
+         button2.addActionListener(this);
          button2.setBorder(null);
          label1.add(button2);  
          setVisible(true);
          
     }
     public static void main(String[] args){
-        new CalculateBill("");
+        new CalculateBill();
     }
 
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        if(e.getSource()==button1){
-//           String met=random.getText();
-//            String location=text1.getSelectedItem();
-//            String type=text2.getSelectedItem();
-//            String billty=text3.getSelectedItem();
-//            String days="30";
-//           
-//            String query1="insert into meter_information values( '"+met+"','"+location+"','"+type+"','"+billty+"','"+days+"')";
-//            
-//            try{
-//                Connect c=new Connect();
-//                c.s.executeUpdate(query1);
-//                
-//                JOptionPane.showMessageDialog(null, "Meter Information Added successfully.");
-//                setVisible(false);
-//                       
-//            }
-//            
-//            catch(Exception ae){
-//                ae.getStackTrace();
-//                
-//            }
-//        }
-//      
-//}
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==button1){
+           String meter=text0.getSelectedItem();
+           String name=text1.getText();
+            String address=text2.getText();
+            String units=text3.getText();
+            String month=text4.getSelectedItem();
+            String days="30";
+           
+            
+            int tbill=0;
+            int unitsc=Integer.parseInt(units);
+            String query="select * from tax";
+            try{
+                Connect c=new Connect();
+                ResultSet rs=c.s.executeQuery(query);
+                while(rs.next()){
+                    tbill+=unitsc*Integer.parseInt(rs.getString("meter_per_unit"));
+                     tbill+=unitsc*Integer.parseInt(rs.getString("meter_rent"));
+                      tbill+=unitsc*Integer.parseInt(rs.getString("service_charge"));
+                       tbill+=unitsc*Integer.parseInt(rs.getString("service_tax"));
+                        tbill+=unitsc*Integer.parseInt(rs.getString("fixed_tax"));
+                        
+                       
+                    
+                }
+            }
+            catch(Exception ae){
+                ae.printStackTrace();
+            }
+            String query1="insert into bill values( '"+meter+"','"+month+"','"+units+"','"+tbill+"')";
+            
+            try{
+                Connect c=new Connect();
+                c.s.executeUpdate(query1);
+                
+                JOptionPane.showMessageDialog(null, "Customer Bill Information Added successfully.");
+                setVisible(false);
+                       
+            }
+            
+            catch(Exception ae){
+                ae.getStackTrace();
+                
+            }
+        }
+      
+}
 }

@@ -6,16 +6,16 @@ import java.awt.event.*;
 import java.awt.ActiveEvent;
 
 public class Home extends JFrame implements ActionListener{
-    JMenuItem first;
+    JMenuItem first,second,third ,bill;
     Home(){
         
          //    ---------Creating Panel----------
          
-         setTitle("Welcome");
+         setTitle("Welcome"); 
          setSize(1200,800);
          setLocation(180,10);
          
-         //   ---------- Background Image ----------
+         //   ---------- Background Image ---------- 
          
          ImageIcon background=new ImageIcon(ClassLoader.getSystemResource("icons/wallpapers.jpg"));
          Image set=background.getImage().getScaledInstance(1200, 800, Image.SCALE_DEFAULT);
@@ -46,31 +46,45 @@ public class Home extends JFrame implements ActionListener{
           Image set2=img2.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT);
           first.setIcon(new ImageIcon(set2));
           first.setMnemonic('A');
+          first.addActionListener(this);
           first.setFont(new Font("mono spaced",Font.PLAIN,12));
           first.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,ActionEvent.CTRL_MASK));
           home.add(first);
            
-          JMenuItem second=new JMenuItem("Customer Details");
+           second=new JMenuItem("Customer Details");
           second.setMnemonic('s');
           second.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,ActionEvent.CTRL_MASK));
           ImageIcon img3=new ImageIcon(ClassLoader.getSystemResource("icons/custd.png"));
           Image set3=img3.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT);
+          second.addActionListener(this);
           second.setIcon(new ImageIcon(set3));
           second.setMnemonic('A');
           second.setFont(new Font("mono spaced",Font.PLAIN,12));
           home.add(second);
           
-          JMenuItem third=new JMenuItem("Deposit Details");
+          third=new JMenuItem("Deposit Details");
           third.setMnemonic('s');
           ImageIcon img4=new ImageIcon(ClassLoader.getSystemResource("icons/file.png"));
           Image set4=img4.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT);
          
           third.setIcon(new ImageIcon(set4));
+          third.addActionListener(this);
           third.setMnemonic('A');
           third.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,ActionEvent.CTRL_MASK));
           third.setFont(new Font("mono spaced",Font.PLAIN,12));
           home.add(third);
-          
+          bill=new JMenuItem("Calculate Bill");
+          bill.setMnemonic('s');
+          ImageIcon img=new ImageIcon(ClassLoader.getSystemResource("icons/notes.png"));
+          Image set0=img.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT);
+         
+          bill.setIcon(new ImageIcon(set0));
+          bill.addActionListener(this);
+          bill.setMnemonic('A');
+          bill.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,ActionEvent.CTRL_MASK));
+          bill.setFont(new Font("mono spaced",Font.PLAIN,12));
+          home.add(bill);
+         
 //          -------------------2nd Option--------------------  
 
           JMenu user=new JMenu("User");
@@ -196,10 +210,20 @@ public class Home extends JFrame implements ActionListener{
          @Override
          public void actionPerformed(ActionEvent e) {
              if(e.getSource()==first){
-                 setVisible(false);
-                 new NewCustomer().setVisible(true);
+                 new NewCustomer();
                  
              }
+             else if(e.getSource()==second ){
+                 
+             }
+              else if(e.getSource()==third ){
+                 
+             }
+              else if(e.getSource()==bill ){
+                  new CalculateBill();
+                 
+             }
+             
         
         
     }
