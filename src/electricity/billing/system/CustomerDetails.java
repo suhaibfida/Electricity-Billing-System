@@ -1,4 +1,3 @@
-
 package electricity.billing.system;
 
 
@@ -6,7 +5,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.PrinterException;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.proteanit.sql.DbUtils;
 
 public class CustomerDetails extends JFrame  implements ActionListener {
     Choice ch,ch2;
@@ -17,6 +20,7 @@ public class CustomerDetails extends JFrame  implements ActionListener {
         super("Customer Details");
         setLocation(350,10);
         setSize(800,700);
+        
         ImageIcon background=new ImageIcon(ClassLoader.getSystemResource("icons/h.jpg"));
          Image set=background.getImage().getScaledInstance(1000, 700, Image.SCALE_DEFAULT);
          ImageIcon i1=new ImageIcon(set);
@@ -93,17 +97,19 @@ public class CustomerDetails extends JFrame  implements ActionListener {
         
         
          
-//         table=new JTable();
+        table=new JTable();
+        
+        
           try{
               Connect c=new Connect();
               ResultSet rs=c.s.executeQuery("select * from bill");
-//              table.setModel(dbUtils.resultSetToTableModel(rs));
+              table.setModel(DbUtils.resultSetToTableModel(rs));
               
-//              JScrollPane scroll=new JScrollPane();
-//              scroll.setBounds(0, 100, 700, 600);
-//              image1.add(scroll);
+              JScrollPane scroll=new JScrollPane(table);
+              scroll.setBounds(100, 200, 600, 400);
+             image1.add(scroll);
               
-            button1=new JButton("Search");
+         button1=new JButton("Search");
          button1.setBounds(500, 75, 100, 20);
          button1.setBackground(Color.GRAY);
          button1.setForeground(Color.WHITE);
@@ -126,7 +132,7 @@ public class CustomerDetails extends JFrame  implements ActionListener {
          
               
               setVisible(true);
-              
+              setLayout(null);
               
           }
           catch(Exception e){
@@ -147,10 +153,23 @@ public class CustomerDetails extends JFrame  implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==button1){
-            
+            try{
+                String query="select * from bill where meter_no='"+ch.getSelectedItem()+"'and month='"+ch2.getSelectedItem()+"'";
+                Connect c=new Connect();
+                ResultSet rs=c.s.executeQuery(query);
+                table.setModel(DbUtils.resultSetToTableModel(rs));
+                
+            }
+            catch(Exception ae){
+               ae.printStackTrace();
+            }
         }
         else{
-//            table.print();
+            try {
+                table.print();
+            } catch (PrinterException ex) {
+                Logger.getLogger(CustomerDetails.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
        
         

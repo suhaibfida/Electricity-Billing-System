@@ -12,9 +12,9 @@ public class MeterInformation extends JFrame implements ActionListener{
     
     
     
-    MeterInformation (String meter){
-        setTitle("Meter Information");
-        setLocation(480,50);
+     MeterInformation (String meter){
+        setTitle("Meter Information"); 
+        setLocation(480,50); 
         setSize(600,650);
         this.meter=meter;
   

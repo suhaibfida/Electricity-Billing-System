@@ -10,7 +10,7 @@ public class Home extends JFrame implements ActionListener{
     Home(){
         
          //    ---------Creating Panel----------
-         
+          
          setTitle("Welcome"); 
          setSize(1200,800);
          setLocation(180,10);

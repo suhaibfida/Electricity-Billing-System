@@ -216,7 +216,7 @@ public class CalculateBill extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource()==button1){
+        if(e.getSource()==button2){
            String meter=text0.getSelectedItem();
            String name=text1.getText();
             String address=text2.getText();
@@ -260,6 +260,9 @@ public class CalculateBill extends JFrame implements ActionListener {
                 ae.getStackTrace();
                 
             }
+        }
+        else{
+            new Login();
         }
       
 }
