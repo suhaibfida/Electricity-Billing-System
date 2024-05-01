@@ -214,9 +214,11 @@ public class Home extends JFrame implements ActionListener{
                  
              }
              else if(e.getSource()==second ){
+                 new CustomerDetails();
                  
              }
               else if(e.getSource()==third ){
+                  new DepositDetails();
                  
              }
               else if(e.getSource()==bill ){
