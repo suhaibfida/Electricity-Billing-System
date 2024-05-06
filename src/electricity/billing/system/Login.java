@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
-
+import java.sql.ResultSet;
 
 
 public class Login extends JFrame implements ActionListener{
@@ -83,6 +83,10 @@ public class Login extends JFrame implements ActionListener{
         input2.setBorder(null);
         input2.setBackground(Color.WHITE);
         image1.add(input2);
+        
+        
+        
+       
         
 //           ------------ Buttons ----------
 

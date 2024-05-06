@@ -1,8 +1,11 @@
 package electricity.billing.system;
 
+import java.sql.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import javax.swing.*;
 
 public class Register extends JFrame implements ActionListener{
@@ -120,7 +123,38 @@ public class Register extends JFrame implements ActionListener{
          button2.setFont(new Font("SAN SERIF",Font.BOLD,16));
          button2.addActionListener(this);
          button2.setBorder(null);
-         image1.add(button2);  
+         image1.add(button2); 
+        
+         
+          reg.addFocusListener(new FocusListener (){
+               @Override
+             public void focusGained(FocusEvent fe){
+             
+             try{
+                 Connect c=new Connect();
+                 ResultSet rs= c.s.executeQuery("select * from login where meter_no='"+text1.getText() +"'");
+                 while(rs.next()){
+                     text3.setText(rs.getString("name"));
+                      
+                 }
+                 
+             }
+             catch(Exception e){
+                 
+                 
+             }
+             
+             }
+
+               @Override
+              public void focusLost(FocusEvent fe){}
+
+
+         
+         });
+         
+         
+         
          setVisible(true);
          setLayout(null);
             
@@ -134,8 +168,8 @@ public class Register extends JFrame implements ActionListener{
          public void actionPerformed(ActionEvent e) {
   
          if(e.getSource()==button1){
-             
-             
+           
+            
              
              
              

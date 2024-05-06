@@ -166,7 +166,7 @@ public class MeterInformation extends JFrame implements ActionListener{
          
     }
     public static void main(String[] args){
-        new MeterInformation("");
+        new MeterInformation(""); 
     }
 
     @Override
