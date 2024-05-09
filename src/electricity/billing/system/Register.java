@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import javax.swing.*;
 
 public class Register extends JFrame implements ActionListener{
@@ -70,10 +72,31 @@ public class Register extends JFrame implements ActionListener{
          image1.add(label2);
          label2.setFont(new Font("SAN SERIF",Font.BOLD,16));
          label2.setForeground(Color.DARK_GRAY);
+         
          text1=new JTextField();
          image1.add(text1);
          text1.setBounds(280,227,199,20);
+         
          text1.setBorder(null);
+         
+         
+         reg.addItemListener(new ItemListener(){
+                 public void itemStateChanged(ItemEvent aae){
+                     String user=reg.getSelectedItem();
+                     if(user.equals("Admin")){
+                         label2.setVisible(false);
+                         text1.setVisible(false);
+                         text3.setEditable(false);
+                         
+                         
+                     }
+                     
+                     
+                 }
+             
+             });
+         
+         
          
          JLabel label3=new JLabel("Username:");
          label3.setBounds(90, 298, 150, 16);
@@ -144,6 +167,7 @@ public class Register extends JFrame implements ActionListener{
                  
              }
              
+             
              }
 
                @Override
@@ -152,7 +176,9 @@ public class Register extends JFrame implements ActionListener{
 
          
          });
-         
+          
+          
+          
          
          
          setVisible(true);

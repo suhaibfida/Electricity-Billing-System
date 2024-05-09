@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="67b46a08-97d5-4a0f-996f-fd01044f81f9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Electricity-Billing-System-main/electricity/billing/system/Login.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/electricity/billing/system/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/electricity/billing/system/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/electricity/billing/system/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/electricity/billing/system/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/electricity/billing/system/MeterInformation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/electricity/billing/system/MeterInformation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/electricity/billing/system/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/electricity/billing/system/Register.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
