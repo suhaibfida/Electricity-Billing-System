@@ -211,7 +211,12 @@ public class Register extends JFrame implements ActionListener{
          String stext4=text4.getText();
          try{
              Connect c=new Connect();
-             String query="insert into login values('"+stext1+"','"+stext2+"','"+stext3+"','"+stext4+"','"+sch+"')";
+             String query=null;
+             if(reg.getSelectedItem().equals("Customer")){
+             query="insert into login values('"+stext1+"','"+stext2+"','"+stext3+"','"+stext4+"','"+sch+"')";}
+             else{
+                 query="update  login set username='"+stext2+"'and password='"+stext4+"' and user='"+sch+"')";
+             }
              c.s.executeUpdate(query);
              JOptionPane.showMessageDialog(null, "Account created Successfully");
              setVisible(false);
