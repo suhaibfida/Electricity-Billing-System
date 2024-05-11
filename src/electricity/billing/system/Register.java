@@ -215,7 +215,7 @@ public class Register extends JFrame implements ActionListener{
              if(reg.getSelectedItem().equals("Customer")){
              query="insert into login values('"+stext1+"','"+stext2+"','"+stext3+"','"+stext4+"','"+sch+"')";}
              else{
-                 query="update  login set username='"+stext2+"'and password='"+stext4+"' and user='"+sch+"')";
+                 query="update  login set username='"+stext2+"'and password='"+stext4+"' and user='"+sch+"' where meter_no='"+stext1+"')";
              }
              c.s.executeUpdate(query);
              JOptionPane.showMessageDialog(null, "Account created Successfully");

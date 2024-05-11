@@ -6,11 +6,14 @@ import java.awt.event.*;
 import java.awt.ActiveEvent;
 
 public class Home extends JFrame implements ActionListener{
-    JMenuItem first,second,third ,bill;
-    Home(){
+    JMenuItem first,second,third ,bill,sixth;
+    String atype;
+    String meter;
+    Home(String atype,String meter){
         
          //    ---------Creating Panel----------
-          
+          this.atype=atype;
+          this.meter=meter;
          setTitle("Welcome"); 
          setSize(1200,800);
          setLocation(180,10);
@@ -37,7 +40,7 @@ public class Home extends JFrame implements ActionListener{
           Image set1=img1.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT);
           home.setIcon(new ImageIcon(set1));
           home.setForeground(Color.BLUE);
-          menu.add(home);
+         
           
 //          ---------------------------------------
 
@@ -93,7 +96,7 @@ public class Home extends JFrame implements ActionListener{
           ImageIcon imgu=new ImageIcon(ClassLoader.getSystemResource("icons/user.png"));
           Image setu=imgu.getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT);
           user.setIcon(new ImageIcon(setu));
-          menu.add(user);
+          
           
 //          -------------------------------------
           
@@ -127,14 +130,14 @@ public class Home extends JFrame implements ActionListener{
           
 //          --------------------------------------
           
-          JMenuItem sixth=new JMenuItem("View Statistics");
+          sixth=new JMenuItem("View Statistics");
           ImageIcon img8=new ImageIcon(ClassLoader.getSystemResource("icons/file.png"));
           Image set8=img8.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT);
           sixth.setIcon(new ImageIcon(set8));
           sixth.setMnemonic('R');
           sixth.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,ActionEvent.CTRL_MASK));
           sixth.setFont(new Font("mono spaced",Font.PLAIN,12));
-          statistics.add(sixth);
+          
           
           JMenuItem seventh=new JMenuItem("Update Statistics");
           ImageIcon img9=new ImageIcon(ClassLoader.getSystemResource("icons/notes.png"));
@@ -153,7 +156,7 @@ public class Home extends JFrame implements ActionListener{
           ImageIcon img10=new ImageIcon(ClassLoader.getSystemResource("icons/utilization.png"));
           Image set10=img10.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT);
           utility.setIcon(new ImageIcon(set10));
-          menu.add(utility);
+          
           
 //          ----------------------------------
 
@@ -185,7 +188,19 @@ public class Home extends JFrame implements ActionListener{
           ImageIcon img13=new ImageIcon(ClassLoader.getSystemResource("icons/exit.png"));
           Image set13=img13.getImage().getScaledInstance(19, 19, Image.SCALE_DEFAULT);
           exit.setIcon(new ImageIcon(set13));
-          menu.add(exit);
+         
+          
+          if(atype.equals("Admin")){
+               menu.add(home);
+          }
+          else{
+                menu.add(user);
+              statistics.add(sixth);
+            
+          }
+           menu.add(utility);
+           menu.add(exit);
+          
           
 //          ----------TEXT------------------
         JLabel text1=new JLabel("Welcome to the world \n of light!!!");
@@ -203,7 +218,7 @@ public class Home extends JFrame implements ActionListener{
           
     }
     public static void main(String [] args){
-          new Home();
+          new Home("","");
     }
         
     
@@ -225,6 +240,11 @@ public class Home extends JFrame implements ActionListener{
                   new CalculateBill();
                  
              }
+              else if(e.getSource()==sixth){
+                  
+                  new Statistics(meter);
+                  
+              }
              
         
         

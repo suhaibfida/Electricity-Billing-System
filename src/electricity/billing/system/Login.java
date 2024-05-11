@@ -143,8 +143,9 @@ public class Login extends JFrame implements ActionListener{
 
                 ResultSet rs=c.s.executeQuery(query);
                if(rs.next()){
+                   String meter=rs.getString("meter_no");
                    setVisible(false);
-                   new Home().setVisible(true);
+                   new Home(ssuser,meter).setVisible(true);
                    
                }
                else{
