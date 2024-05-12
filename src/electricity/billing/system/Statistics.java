@@ -1,10 +1,13 @@
 
 package electricity.billing.system;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
-
-public class Statistics extends JFrame {
+import java.sql.*;
+public class Statistics extends JFrame implements ActionListener {
     String meter;
+    JButton button1;
     Statistics(String meter){
         this.meter=meter;
         setTitle("Information");
@@ -91,7 +94,37 @@ public class Statistics extends JFrame {
         add(city);
         
         
-        
+        try{
+            Connect c=new Connect();
+            ResultSet rs=c.s.executeQuery("select * from customer where meter='"+meter+"'");
+            while(rs.next()){
+               name.setText(rs.getString("name"));
+               address.setText(rs.getString("address"));
+               city.setText(rs.getString("city"));
+               state.setText(rs.getString("state"));
+               email.setText(rs.getString("email"));
+               phone.setText(rs.getString("phone"));
+               meterno.setText(rs.getString("meterno"));
+               
+                   
+                   
+                
+                
+            }
+            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            
+        }
+         button1=new JButton("Cancel");
+        button1.setBounds(245, 550, 250, 28);
+        button1.setFont(new Font("SAN Serif",Font.BOLD,18));
+        button1.setForeground(Color.DARK_GRAY);
+        button1.setBackground(Color.ORANGE);
+        button1.addActionListener(this);
+        button1.setBorder(null);
+        add(button1);
         
         
         
@@ -108,6 +141,13 @@ public class Statistics extends JFrame {
     public static void main(String[] args){
         new Statistics("");
         
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==button1){
+           setVisible(false);
+        }
     }
     
 }

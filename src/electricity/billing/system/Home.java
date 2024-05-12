@@ -6,7 +6,7 @@ import java.awt.event.*;
 import java.awt.ActiveEvent;
 
 public class Home extends JFrame implements ActionListener{
-    JMenuItem first,second,third ,bill,sixth;
+    JMenuItem first,second,third ,bill,sixth,fifth;
     String atype;
     String meter;
     Home(String atype,String meter){
@@ -109,7 +109,7 @@ public class Home extends JFrame implements ActionListener{
           fourth.setFont(new Font("mono spaced",Font.PLAIN,12));
           user.add(fourth);
           
-          JMenuItem fifth=new JMenuItem("Bill Details");
+          fifth=new JMenuItem("Bill Details");
           ImageIcon img6=new ImageIcon(ClassLoader.getSystemResource("icons/bill.png"));
           Image set6=img6.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
           fifth.setIcon(new ImageIcon(set6));
@@ -244,6 +244,9 @@ public class Home extends JFrame implements ActionListener{
                   
                   new Statistics(meter);
                   
+              }
+              else if(e.getSource()==fifth){
+                  new BillDetails(meter);
               }
              
         

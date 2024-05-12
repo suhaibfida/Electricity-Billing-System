@@ -93,7 +93,7 @@ public class MeterInformation extends JFrame implements ActionListener{
          text2.add("Smart Meter");
          text2.add("Electric Meter");
          text2.add("Solar Meter");
-         
+          
          JLabel label5=new JLabel("Phase Code:");
          label5.setBounds(90, 279, 150, 25);
          label1.add(label5);
