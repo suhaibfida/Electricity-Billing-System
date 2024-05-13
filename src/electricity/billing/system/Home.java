@@ -4,9 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.ActiveEvent;
+import static java.lang.System.exit;
+import java.util.Set;
 
 public class Home extends JFrame implements ActionListener{
-    JMenuItem first,second,third ,bill,sixth,fifth;
+    JMenuItem first,second,third ,bill,sixth,fifth,exi,ninth,exit;
+    
     String atype;
     String meter;
     Home(String atype,String meter){
@@ -114,6 +117,7 @@ public class Home extends JFrame implements ActionListener{
           Image set6=img6.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
           fifth.setIcon(new ImageIcon(set6));
           fifth.setMnemonic('E');
+          fifth.addActionListener(this);
           fifth.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_E,ActionEvent.CTRL_MASK));
           fifth.setFont(new Font("mono spaced",Font.PLAIN,12));
           user.add(fifth);
@@ -170,26 +174,40 @@ public class Home extends JFrame implements ActionListener{
           eighth.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,ActionEvent.CTRL_MASK));
           utility.add(eighth);
           
-          JMenuItem ninth=new JMenuItem("Calculator");
+          ninth=new JMenuItem("Calculator");
           ninth.setFont(new Font("mono spaced",Font.PLAIN,12));
           ninth.setForeground(Color.DARK_GRAY);
+          ninth.addActionListener(this);
           ImageIcon img12=new ImageIcon(ClassLoader.getSystemResource("icons/calculator.png"));
           Image set12=img12.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT);
           ninth.setIcon(new ImageIcon(set12));
           ninth.setMnemonic('B');
           ninth.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_B,ActionEvent.CTRL_MASK));
           utility.add(ninth);
-        
+//        
 //          -----------5Th Option------------------
 
-          JMenu exit=new JMenu ("Exit");
+          exit=new JMenu ("Exit");
           exit.setFont(new Font("SAN SERIF",Font.BOLD,15));
+          
           exit.setForeground(Color.DARK_GRAY);
           ImageIcon img13=new ImageIcon(ClassLoader.getSystemResource("icons/exit.png"));
           Image set13=img13.getImage().getScaledInstance(19, 19, Image.SCALE_DEFAULT);
           exit.setIcon(new ImageIcon(set13));
-         
           
+          
+          exi=new JMenuItem("Exit");
+          exi.setFont(new Font("mono spaced",Font.PLAIN,12));
+          exi.setForeground(Color.DARK_GRAY);
+          exi.addActionListener(this);
+          exi.setIcon(new ImageIcon(set12));
+          exi.setMnemonic('G');
+          exi.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G,ActionEvent.CTRL_MASK));
+          exit.add(exi);
+          
+          
+          
+         
           if(atype.equals("Admin")){
                menu.add(home);
           }
@@ -249,7 +267,21 @@ public class Home extends JFrame implements ActionListener{
                   new BillDetails(meter);
               }
              
+             else if(e.getSource()==ninth){
+                 try{
+                  Runtime.getRuntime().exec("calc.exe");
+              }
+                 catch(Exception ae){
+                     ae.printStackTrace();
+                 }
+                 
+             
+             
         
         
     }
-}
+             else if(e.getSource()==exi){
+                 setVisible(false);
+                         new Login();
+              }
+}}
