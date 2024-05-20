@@ -8,7 +8,7 @@ import static java.lang.System.exit;
 import java.util.Set;
 
 public class Home extends JFrame implements ActionListener{
-    JMenuItem first,second,third ,bill,sixth,fifth,exi,ninth,exit;
+    JMenuItem first,second,third ,bill,sixth,fifth,exi,ninth,seventh,exit;
     
     String atype;
     String meter;
@@ -143,11 +143,12 @@ public class Home extends JFrame implements ActionListener{
           sixth.setFont(new Font("mono spaced",Font.PLAIN,12));
           
           
-          JMenuItem seventh=new JMenuItem("Update Statistics");
+          seventh=new JMenuItem("Update Statistics");
           ImageIcon img9=new ImageIcon(ClassLoader.getSystemResource("icons/notes.png"));
           Image set9=img9.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT);
           seventh.setIcon(new ImageIcon(set9));
           seventh.setMnemonic('G');
+          seventh.addActionListener(this);
           seventh.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G,ActionEvent.CTRL_MASK));
           seventh.setFont(new Font("mono spaced",Font.PLAIN,12));
           statistics.add(seventh);
@@ -275,11 +276,18 @@ public class Home extends JFrame implements ActionListener{
                      ae.printStackTrace();
                  }
                  
-             
-             
-        
+           
         
     }
+             
+             else if(e.getSource()==seventh){
+                 
+                 new UpdateStatistics(meter);
+                 setVisible(false);
+                 
+                 
+             }
+             
              else if(e.getSource()==exi){
                  setVisible(false);
                          new Login();
