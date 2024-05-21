@@ -8,7 +8,7 @@ import static java.lang.System.exit;
 import java.util.Set;
 
 public class Home extends JFrame implements ActionListener{
-    JMenuItem first,second,third ,bill,sixth,fifth,exi,ninth,seventh,exit;
+    JMenuItem first,second,third ,bill,sixth,fifth,exi,ninth,seventh,fourth,exit;
     
     String atype;
     String meter;
@@ -103,11 +103,12 @@ public class Home extends JFrame implements ActionListener{
           
 //          -------------------------------------
           
-          JMenuItem fourth=new JMenuItem("Pay Bill");
+          fourth=new JMenuItem("Pay Bill");
           ImageIcon img5=new ImageIcon(ClassLoader.getSystemResource("icons/pay.png"));
           Image set5=img5.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT);
           fourth.setIcon(new ImageIcon(set5));
           fourth.setMnemonic('F');
+          fourth.addActionListener(this);
           fourth.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F,ActionEvent.CTRL_MASK));
           fourth.setFont(new Font("mono spaced",Font.PLAIN,12));
           user.add(fourth);
@@ -292,4 +293,8 @@ public class Home extends JFrame implements ActionListener{
                  setVisible(false);
                          new Login();
               }
+             else if(e.getSource()==fourth){
+                 setVisible(false);
+                 new PayBill(meter);
+             }
 }}
