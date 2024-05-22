@@ -3,8 +3,11 @@ package electricity.billing.system;
 import java.awt.*;
 import javax.swing.*;
 import java.sql.*;
-public class PayBill extends JFrame {
+import java.awt.event.*;
+public class PayBill extends JFrame implements ActionListener {
     String meter;
+    JButton pay,back;
+    Choice choice;
     PayBill(String meter){
         
         setTitle("Pay Bill");
@@ -50,7 +53,7 @@ public class PayBill extends JFrame {
         
         
         
-        Choice choice=new Choice();
+         choice=new Choice();
         choice.add("JAN");
         choice.add("FEB");
         choice.add("MAR");
@@ -124,6 +127,47 @@ public class PayBill extends JFrame {
             e.printStackTrace();
         }
         
+        choice.addItemListener(new ItemListener(){
+        public void itemStateChanged(ItemEvent ae){
+            
+            try{
+            Connect c=new Connect();
+           
+            ResultSet rs=c.s.executeQuery("select * from bill where meter_no='"+meter+"' AND month='"+choice.getSelectedItem()+"'");
+            input4.setText(rs.getString("units"));
+            input5.setText(rs.getString("totalBill"));
+            input6.setText(rs.getString("status"));
+            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+            
+        }
+        
+        
+        
+        });
+         
+        pay=new JButton("Pay");
+        pay.setBounds(155, 570, 120, 25);
+        pay.setBackground(Color.GRAY);
+        pay.setForeground(Color.WHITE);
+        pay.setFont(new Font("SAN SERIF",Font.BOLD,16));
+        pay.addActionListener(this);
+        pay.setBorder(null);
+        add(pay);
+        
+        back=new JButton("Back");
+        back.setBounds(330, 570, 120, 25);
+        back.setBackground(Color.GRAY);
+        back.setForeground(Color.WHITE);
+        back.setFont(new Font("SAN SERIF",Font.BOLD,16));
+        back.addActionListener(this);
+        back.setBorder(null);
+        add(back);
+        
+        
         
         
         
@@ -132,9 +176,41 @@ public class PayBill extends JFrame {
         
     }
     
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        if(e.getSource()==pay){
+            
+            try{
+                Connect c=new Connect();
+                c.s.executeUpdate("update bill set status ='Paid' where meter_no='"+meter+"' AND month='"+choice+"'");
+                
+            }
+            
+            catch(Exception ac){
+                ac.printStackTrace();
+                
+                
+            }
+            setVisible(false);
+            new Payment(meter);
+        
+    }
+        else{
+            setVisible(false);
+           
+        }
+        
+    }
+    
+    
+    
+    
     
     public static void main(String [] args){
         new PayBill("");
     }
+
+    
     
 }
