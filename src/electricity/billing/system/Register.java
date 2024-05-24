@@ -88,15 +88,11 @@ public class Register extends JFrame implements ActionListener{
                          text1.setVisible(false);
                          text3.setEditable(false);
                          
-                         
                      }
-                     
-                     
+                   
                  }
              
              });
-         
-         
          
          JLabel label3=new JLabel("Username:");
          label3.setBounds(90, 298, 150, 16);
@@ -127,7 +123,21 @@ public class Register extends JFrame implements ActionListener{
          image1.add(text4);
          text4.setBounds(280,424,199,20);
          text4.setBorder(null);
-         
+     
+          reg.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent ae) {
+                String user = reg.getSelectedItem();
+                if (user.equals("Customer")) {
+                    text1.setVisible(true);
+                    label2.setVisible(true);
+                    text3.setEditable(false);
+                } else {
+                    text1.setVisible(false);
+                    label2.setVisible(false);
+                    text3.setEditable(true);
+                }
+            }
+        });
 //         --------------Buttons-----------------
 
          button1=new JButton("Back");
@@ -149,38 +159,24 @@ public class Register extends JFrame implements ActionListener{
          image1.add(button2); 
         
          
-          reg.addFocusListener(new FocusListener (){
-               @Override
-             public void focusGained(FocusEvent fe){
-             
-             try{
-                 Connect c=new Connect();
-                 ResultSet rs= c.s.executeQuery("select * from login where meter_no='"+text1.getText() +"'");
-                 while(rs.next()){
-                     text3.setText(rs.getString("name"));
-                      
-                 }
-                 
-             }
-             catch(Exception e){
-                 
-                 
-             }
-             
-             
-             }
-
-               @Override
-              public void focusLost(FocusEvent fe){}
-
-
-         
-         });
-          
-          
-          
-         
-         
+           reg.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent fe) {}
+            
+            @Override
+            public void focusLost(FocusEvent fe) {
+                try {
+                    Connect c  = new Connect();
+                    ResultSet rs = c.s.executeQuery("select * from login where meter_no = '"+text1.getText()+"'");
+                    while(rs.next()) {
+                        text3.setText(rs.getString("name"));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+      
          setVisible(true);
          setLayout(null);
             
@@ -194,11 +190,7 @@ public class Register extends JFrame implements ActionListener{
          public void actionPerformed(ActionEvent e) {
   
          if(e.getSource()==button1){
-           
-            
-             
-             
-             
+          
          setVisible(false);
          new Login().setVisible(true);
          }

@@ -41,9 +41,7 @@ public class DepositDetails extends JFrame  implements ActionListener {
          headline.setFont(new Font("SAN SERIF",Font.BOLD,23));
          headline.setForeground(Color.white);
          image1.add(headline);
-         
-        
-         
+     
         table=new JTable();
         
         
@@ -99,11 +97,7 @@ public class DepositDetails extends JFrame  implements ActionListener {
             } catch (PrinterException ex) {
                 Logger.getLogger(CustomerDetails.class.getName()).log(Level.SEVERE, null, ex);
             }
-        
-       
-        
-        
-        
+    
     }
     
 }

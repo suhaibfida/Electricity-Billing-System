@@ -74,10 +74,6 @@ public class GenerateBill extends JFrame implements ActionListener {
             Connect c =new Connect();
             area.setText("\t\tGovt. of India Energy Limited \n\t\t Bill for the month of '"+ymonth+"'2024");
             ResultSet rs=c.s.executeQuery("select * from customer where meter_no='"+meter+"'");
-             
-            
-           
-            
             if(rs.next()){
                 
                 area.append("\n Customer :"+ rs.getString("name"));
@@ -87,30 +83,19 @@ public class GenerateBill extends JFrame implements ActionListener {
                 area.append("\n State:"+ rs.getString("state"));
                 area.append("\n Email:"+ rs.getString("email"));
                 area.append("\n Phone:"+ rs.getString("phone"));
-                
-                
-            }
+       }
              rs=c.s.executeQuery("select * from meter_infromation where meter_no='"+meter+"'");
-             
-            
-           
-            
+        
             if(rs.next()){
                 
                 area.append("\n Location:"+ rs.getString("location"));
                 area.append("\n Type:"+ rs.getString("type"));
                 area.append("\n Bill:"+ rs.getString("bill"));
                 area.append("\n Days:"+ rs.getString("days"));
-                
-                
-                
+            
             }
             
              rs=c.s.executeQuery("select * from bill where meter_no='"+meter+"'");
-             
-            
-           
-            
             if(rs.next()){
                 
                 area.append("\n Month:"+ rs.getString("month"));
@@ -119,8 +104,7 @@ public class GenerateBill extends JFrame implements ActionListener {
                 area.append("\n Status:"+ rs.getString("status"));
                 
             }
-            
-            
+   
         }
         catch(Exception ae){
             ae.printStackTrace();

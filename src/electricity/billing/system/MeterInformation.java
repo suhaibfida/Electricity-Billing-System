@@ -10,8 +10,6 @@ public class MeterInformation extends JFrame implements ActionListener{
     JLabel random;
     String meter;
     
-    
-    
       MeterInformation (String meter){
         setTitle("Meter Information"); 
         setLocation(480,50); 
@@ -64,10 +62,6 @@ public class MeterInformation extends JFrame implements ActionListener{
           label1.add(random);
         
           random.setForeground(Color.ORANGE);
-
-
-
-
 
          JLabel label3=new JLabel("Meter Location:");
          label3.setBounds(90, 158, 150, 25);

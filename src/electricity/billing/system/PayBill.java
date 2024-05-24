@@ -29,11 +29,7 @@ public class PayBill extends JFrame implements ActionListener {
         input1.setFont(new Font("Serif",Font.BOLD,17));
         input1.setBounds(170, 170, 200, 30);
         add(input1);
-        
-        
-        
-        
-        
+
         JLabel label2=new JLabel("Name");
         label2.setFont(new Font("Serif",Font.BOLD,17));
         label2.setBounds(50, 240, 100, 30);
@@ -66,17 +62,10 @@ public class PayBill extends JFrame implements ActionListener {
         choice.add("OCT");
         choice.add("NOV");
         choice.add("DEC");
-        
-        
-        
-        
-        
-        
+   
         choice.setBounds(170, 318, 150, 50);
         add(choice);
-        
-//        
-        
+  
         JLabel label4=new JLabel("Units");
         label4.setFont(new Font("Serif",Font.BOLD,17));
         label4.setBounds(50, 380, 100, 30);
@@ -144,9 +133,7 @@ public class PayBill extends JFrame implements ActionListener {
         }
             
         }
-        
-        
-        
+      
         });
          
         pay=new JButton("Pay");
@@ -166,12 +153,7 @@ public class PayBill extends JFrame implements ActionListener {
         back.addActionListener(this);
         back.setBorder(null);
         add(back);
-        
-        
-        
-        
-        
-        
+
         setVisible(true);
         
     }
@@ -202,15 +184,10 @@ public class PayBill extends JFrame implements ActionListener {
         }
         
     }
-    
-    
-    
-    
-    
+  
     public static void main(String [] args){
         new PayBill("");
     }
 
-    
-    
+     
 }

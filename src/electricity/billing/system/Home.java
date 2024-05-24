@@ -8,7 +8,7 @@ import static java.lang.System.exit;
 import java.util.Set;
 
 public class Home extends JFrame implements ActionListener{
-    JMenuItem first,second,third ,bill,sixth,fifth,exi,ninth,seventh,fourth,exit;
+    JMenuItem first,second,third ,fourth,fifth,sixth,seventh,ninth,bill,exi,exit;
     
     String atype;
     String meter;
@@ -140,6 +140,7 @@ public class Home extends JFrame implements ActionListener{
           Image set8=img8.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT);
           sixth.setIcon(new ImageIcon(set8));
           sixth.setMnemonic('R');
+          sixth.addActionListener(this);
           sixth.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,ActionEvent.CTRL_MASK));
           sixth.setFont(new Font("mono spaced",Font.PLAIN,12));
           
@@ -172,6 +173,7 @@ public class Home extends JFrame implements ActionListener{
           ImageIcon img11=new ImageIcon(ClassLoader.getSystemResource("icons/invoice.png"));
           Image set11=img11.getImage().getScaledInstance(25, 25, Image.SCALE_DEFAULT);
           eighth.setIcon(new ImageIcon(set11));
+          eighth.addActionListener(this);
           eighth.setMnemonic('Q');
           eighth.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,ActionEvent.CTRL_MASK));
           utility.add(eighth);
@@ -206,10 +208,7 @@ public class Home extends JFrame implements ActionListener{
           exi.setMnemonic('G');
           exi.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_G,ActionEvent.CTRL_MASK));
           exit.add(exi);
-          
-          
-          
-         
+      
           if(atype.equals("Admin")){
                menu.add(home);
           }
@@ -228,12 +227,7 @@ public class Home extends JFrame implements ActionListener{
         text1.setForeground(Color.white);
         text1.setFont(new Font("SERIF",Font.BOLD,50));
         image1.add(text1);
-          
-          
-          
-          
-          
-          
+        
          setVisible(true);
           
     }
@@ -261,7 +255,7 @@ public class Home extends JFrame implements ActionListener{
                  
              }
               else if(e.getSource()==sixth){
-                  
+                  setVisible(false);
                   new Statistics(meter);
                   
               }
@@ -276,16 +270,13 @@ public class Home extends JFrame implements ActionListener{
                  catch(Exception ae){
                      ae.printStackTrace();
                  }
-                 
-           
-        
+          
     }
              
              else if(e.getSource()==seventh){
                  
                  new UpdateStatistics(meter);
                  setVisible(false);
-                 
                  
              }
              
@@ -297,4 +288,9 @@ public class Home extends JFrame implements ActionListener{
                  setVisible(false);
                  new PayBill(meter);
              }
+             else{
+                 setVisible(false);
+                 new GenerateBill(meter);
+                         
+                         }
 }}

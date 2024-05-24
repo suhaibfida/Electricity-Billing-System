@@ -111,11 +111,6 @@ public class CalculateBill extends JFrame implements ActionListener {
              e.printStackTrace();
              
          }
-           
-            
-           
-           
-           
             text0.addItemListener(new ItemListener(){
              @Override
             public void itemStateChanged(ItemEvent e) {
@@ -132,9 +127,6 @@ public class CalculateBill extends JFrame implements ActionListener {
              ae.printStackTrace();
              
          }
-             
-             
-         
             }
         });
          
@@ -149,13 +141,6 @@ public class CalculateBill extends JFrame implements ActionListener {
          text3.setBounds(280,283,190,18);
          text3.setBorder(null);
       
-         
-        
-       
-       
-
-          
-         
          JLabel label6=new JLabel("Month:");
          label6.setBounds(90, 341, 150, 25);
          label1.add(label6);
@@ -179,13 +164,6 @@ public class CalculateBill extends JFrame implements ActionListener {
          text4.add("November");
          text4.add("December");
          
-         
-         
-         
-         
-       
-        
-        
 //         --------------Buttons-----------------
 
          

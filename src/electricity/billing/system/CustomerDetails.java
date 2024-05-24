@@ -1,6 +1,5 @@
 package electricity.billing.system;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -139,10 +138,7 @@ public class CustomerDetails extends JFrame  implements ActionListener {
               e.printStackTrace();
               
           }
-        
-        
-        
-        
+       
     }
     
     

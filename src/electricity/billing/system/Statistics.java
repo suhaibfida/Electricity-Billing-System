@@ -105,11 +105,7 @@ public class Statistics extends JFrame implements ActionListener {
                email.setText(rs.getString("email"));
                phone.setText(rs.getString("phone"));
                meterno.setText(rs.getString("meterno"));
-               
-                   
-                   
-                
-                
+      
             }
             
         }
@@ -125,18 +121,8 @@ public class Statistics extends JFrame implements ActionListener {
         button1.addActionListener(this);
         button1.setBorder(null);
         add(button1);
-        
-        
-        
-        
-        
-        
-        
         setVisible (true);
-        
-    }
-    
-    
+ }
     
     public static void main(String[] args){
         new Statistics("");

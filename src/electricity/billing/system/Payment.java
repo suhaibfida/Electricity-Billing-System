@@ -46,8 +46,7 @@ public class Payment extends JFrame implements ActionListener {
             setVisible(false);
             new PayBill(meter);
         }
-        
-        
+
     }
     
 }

@@ -8,8 +8,7 @@ public class NewCustomer extends JFrame implements ActionListener{
     JTextField text1,text2,text3,text4,text5,text6;
     JButton button1,button2;
     JLabel random;
-    
-    
+   
     NewCustomer (){
         setTitle("New Customer");
         setLocation(480,70);

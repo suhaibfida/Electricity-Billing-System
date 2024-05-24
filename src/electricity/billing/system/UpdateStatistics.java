@@ -1,5 +1,5 @@
-
 package electricity.billing.system;
+
 import java.awt.*;
 import javax.swing.*;
 import java.sql.*;
@@ -116,9 +116,6 @@ public class UpdateStatistics extends JFrame implements ActionListener{
         input5.setBackground(Color.WHITE);
          add(input5);
          
-         
-         
-         
              try{
                  Connect c=new Connect();
                  ResultSet rs=c.s.executeQuery("select * from customer where meter_no='"+meter+"'");
@@ -131,17 +128,11 @@ public class UpdateStatistics extends JFrame implements ActionListener{
                      input4.setText(rs.getString("phone"));
                      input5.setText(rs.getString("City"));
                  }
-                 
-                 
-                 
-                            }
+                     }
                 catch(Exception e){
                     e.printStackTrace();
     
-} 
-             
-             
-             
+}     
         button2=new JButton("Sign Up");
         button2.setForeground(Color.DARK_GRAY);
         button2.setBackground(Color.LIGHT_GRAY);
@@ -159,19 +150,9 @@ public class UpdateStatistics extends JFrame implements ActionListener{
         button3.setBounds(385, 470, 110, 25);
         button3.setFont(new Font("SAN Serif",Font.BOLD,15));
        add(button3);
-        
-     
-       
-       
-       
-       
-       
-       
-       
-       
+   
         setVisible(true);
-        
-        
+      
     }
     
     public static void main(String [] args){
@@ -197,13 +178,7 @@ public class UpdateStatistics extends JFrame implements ActionListener{
                     ae.printStackTrace();
                     
                 }
-                
-                
-                
-                
-                
-        }
-            
+ } 
             catch(Exception ae){
                 ae.printStackTrace();
             }
@@ -212,8 +187,7 @@ public class UpdateStatistics extends JFrame implements ActionListener{
         else{
             setVisible(false);
         }
-        
-        
+      
     }
     
 }

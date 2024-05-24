@@ -2,8 +2,6 @@
 package electricity.billing.system;
 import java.sql.*;
 
-
-
 public class Connect {
     
     Connection c;
@@ -21,10 +19,6 @@ public class Connect {
         catch(SQLException e) {
             e.printStackTrace();
         }
-
-
-
-
 
     }
     public static void main(String [] args){
