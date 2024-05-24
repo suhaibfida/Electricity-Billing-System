@@ -20,6 +20,7 @@
    1) Netbeans.
    2)  Jdbc [Library] (Connect SQL database to the Java file). Jdbc connector "https://dev.mysql.com/downloads/connector/j/" --> platform independent
         {Unzip-->MySQL connector}.
+   3)  Download rs2xml.jar for JTable.     
         <hr>
    <h3> 📷Images:-</h3>
     1)
