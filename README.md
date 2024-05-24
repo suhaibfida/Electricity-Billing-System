@@ -33,7 +33,8 @@
 
 3)
 
-![Uploading Screenshot 2024-05-24 234819.png…]()
+![Screenshot 2024-05-24 234819](https://github.com/SuhaibFida/Electricity-Billing-System/assets/109733166/9c484371-5210-447e-9cff-b79bc1552e4a)
+
 
 
 
