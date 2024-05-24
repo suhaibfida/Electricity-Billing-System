@@ -31,6 +31,11 @@
 
 ![Screenshot 2024-05-24 233459](https://github.com/SuhaibFida/Electricity-Billing-System/assets/109733166/8829063b-d26d-4286-abb4-bdcd2fd9dae1)
 
+3)
+
+![image](https://github.com/SuhaibFida/Electricity-Billing-System/assets/109733166/025dbbcd-6eac-47a2-b614-9e858e03fac1)
+
+
 
 
 
